@@ -1,125 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-
-  <!-- 這行很重要，沒有它 RWD 可能不會正常判斷手機寬度 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Responsive Layout</title>
-
-  <style>
-    body {
-      margin: 0;
-      background-color: white;
-      font-family: Arial, sans-serif;
-    }
-
-    .page {
-      width: 700px;
-      margin: 100px auto;
-      background-color: #4db3ee;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .card {
-      background-color: white;
-      border-radius: 8px;
-      padding: 10px;
-      box-sizing: border-box;
-    }
-
-    .header {
-      height: 90px;
-      background-color: #b5df3d;
-      margin-bottom: 8px;
-    }
-
-    .main {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
-      margin-bottom: 8px;
-    }
-
-    .main div {
-      height: 110px;
-      background-color: #13b9c3;
-    }
-
-    .bottom {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
-    }
-
-    .bottom div {
-      height: 70px;
-      background-color: #e8f0f2;
-    }
-
-    /* 寬度小於 480px 時，改成左邊那種版面 */
-    @media screen and (max-width: 480px) {
-      .page {
-        width: 260px;
-        margin: 40px auto;
-        padding: 12px;
-      }
-
-      .card {
-        padding: 8px;
-      }
-
-      .header {
-        height: 70px;
-        margin-bottom: 6px;
-      }
-
-      .main {
-        grid-template-columns: 1fr;
-        gap: 4px;
-        margin-bottom: 6px;
-      }
-
-      .main div {
-        height: 42px;
-      }
-
-      .bottom {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 4px;
-      }
-
-      .bottom div {
-        height: 42px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <div class="page">
-    <div class="card">
-
-      <div class="header"></div>
-
-      <div class="main">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-
-      <div class="bottom">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-
+    <div class="card-container">
+        <div class="box header-green"></div>
+        
+        <div class="middle-section">
+            <div class="box content-blue"></div>
+            <div class="box content-blue"></div>
+            <div class="box content-blue"></div>
+        </div>
+        
+        <div class="bottom-section">
+            <div class="box footer-grey"></div>
+            <div class="box footer-grey"></div>
+            <div class="box footer-grey"></div>
+            <div class="box footer-grey"></div>
+        </div>
     </div>
-  </div>
-
 </body>
 </html>
