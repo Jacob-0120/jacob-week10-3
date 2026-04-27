@@ -1,113 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <title>Responsive Layout</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout Practice</title>
+    <style>
+        /* 基礎設定，讓所有元素的邊框計算包含在寬高內 */
+        * {
+            box-sizing: border-box;
+        }
 
-  <style>
-    body {
-      margin: 0;
-      background-color: #ffffff;
-      font-family: Arial, sans-serif;
-    }
+        /* 外層背景設定為淺藍色，並讓主要卡片置中 */
+        body {
+            background-color: #4da6ff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            font-family: sans-serif;
+        }
 
-    .page {
-      width: 90%;
-      max-width: 700px;
-      margin: 80px auto;
-      background-color: #4db3ee;
-      padding: 20px;
-      box-sizing: border-box;
-    }
+        /* 白色的主容器卡片 */
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 800px; /* 限制最大寬度，避免在大螢幕上無限制拉長 */
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* 每個大區塊(綠、藍、灰)之間的垂直間距 */
+        }
 
-    .card {
-      background-color: white;
-      border-radius: 8px;
-      padding: 10px;
-      box-sizing: border-box;
-    }
+        /* (1) 頂部綠色區塊：永遠佔滿寬度 */
+        .header-box {
+            background-color: #a2cc3a;
+            height: 120px;
+            border-radius: 4px;
+        }
 
-    .header {
-      height: 90px;
-      background-color: #b5df3d;
-      margin-bottom: 8px;
-    }
+        /* (2) 中間藍色區塊：預設為水平排列 */
+        .main-content {
+            display: flex;
+            gap: 15px; /* 區塊之間的間距 */
+        }
+        .blue-box {
+            background-color: #00c3c3;
+            height: 120px;
+            flex: 1; /* 讓三個區塊平均分配空間 */
+            border-radius: 4px;
+        }
 
-    .main {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
-      margin-bottom: 8px;
-    }
+        /* (3) 底部灰色區塊：預設為水平排列 */
+        .footer-content {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap; /* 允許折行，為了手機版的 2x2 排版做準備 */
+        }
+        .grey-box {
+            background-color: #e6e6e6;
+            height: 80px;
+            flex: 1; /* 平均分配四個區塊的空間 */
+            border-radius: 4px;
+        }
 
-    .main div {
-      height: 110px;
-      background-color: #13b9c3;
-    }
+        /* ========================================= */
+        /* ★ 核心考點：Media Query (當寬度小於 480px 時) */
+        /* ========================================= */
+        @media (max-width: 479px) {
+            
+            /* 藍色區塊：從原本的水平並排，改成垂直堆疊 */
+            .main-content {
+                flex-direction: column; 
+            }
 
-    .bottom {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
-    }
-
-    .bottom div {
-      height: 70px;
-      background-color: #e8f0f2;
-    }
-
-    @media screen and (max-width: 480px) {
-      .page {
-        width: 90%;
-        margin: 40px auto;
-        padding: 12px;
-      }
-
-      .header {
-        height: 70px;
-      }
-
-      .main {
-        grid-template-columns: 1fr;
-      }
-
-      .main div {
-        height: 45px;
-      }
-
-      .bottom {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .bottom div {
-        height: 45px;
-      }
-    }
-  </style>
+            /* 灰色區塊：改成 2x2 的網格排列 */
+            .grey-box {
+                /* 每個區塊佔據 50% 的寬度，並扣掉間距 (gap) 的一半，這樣剛好一行放兩個 */
+                flex: 0 0 calc(50% - 7.5px); 
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-  <div class="page">
-    <div class="card">
+    <div class="container">
+        
+        <div class="header-box"></div>
 
-      <div class="header"></div>
+        <div class="main-content">
+            <div class="blue-box"></div>
+            <div class="blue-box"></div>
+            <div class="blue-box"></div>
+        </div>
 
-      <div class="main">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-
-      <div class="bottom">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+        <div class="footer-content">
+            <div class="grey-box"></div>
+            <div class="grey-box"></div>
+            <div class="grey-box"></div>
+            <div class="grey-box"></div>
+        </div>
 
     </div>
-  </div>
 
 </body>
 </html>
