@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Layout</title>
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .page {
+      width: 90%;
+      max-width: 700px;
+      margin: 80px auto;
+      background-color: #4db3ee;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .header {
+      height: 90px;
+      background-color: #b5df3d;
+      margin-bottom: 8px;
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .main div {
+      height: 110px;
+      background-color: #13b9c3;
+    }
+
+    .bottom {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+    }
+
+    .bottom div {
+      height: 70px;
+      background-color: #e8f0f2;
+    }
+
+    @media screen and (max-width: 480px) {
+      .page {
+        width: 90%;
+        margin: 40px auto;
+        padding: 12px;
+      }
+
+      .header {
+        height: 70px;
+      }
+
+      .main {
+        grid-template-columns: 1fr;
+      }
+
+      .main div {
+        height: 45px;
+      }
+
+      .bottom {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .bottom div {
+        height: 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+    <div class="card">
+
+      <div class="header"></div>
+
+      <div class="main">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="bottom">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
